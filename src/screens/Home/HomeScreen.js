@@ -39,7 +39,7 @@ const HomeScreen = () => {
       <StatusBar backgroundColor='black' />
       <LinearGradient
         style={{ width: '100%', height: '100%', alignItems: 'center' }}
-        colors={[colors.secondaryDark, colors.secondaryDark, colors.principal]}>
+        colors={[colors.black, colors.black, colors.primary]}>
         <Animated.Image
           source={economy}
           style={[styles.image, { transform: [{ translateY: verticalVal }] }]} />
@@ -50,7 +50,7 @@ const HomeScreen = () => {
             onPress={() => navigation.navigate('TabScreen')}>
             <View style={styles.textButtonContainer}>
               <Text style={styles.textButton}>Iniciar</Text>
-              <Icon name='arrow-right' color='#fff' size={30} />
+              <Icon name='arrow-right' color={colors.white} size={30} />
             </View>
           </TouchableOpacity>
         </View>
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   title: {
-    color: '#fff',
+    color: colors.white,
     fontSize: 40
   },
   button: {
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     padding: 20,
     borderRadius: 30,
     borderWidth: 1,
-    borderColor: '#fff',
+    borderColor: colors.white,
     alignItems: 'center',
   },
   textButtonContainer: {
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   textButton: {
-    color: '#fff',
+    color: colors.white,
     fontSize: 22,
     textAlign: 'center',
     marginRight: 10,

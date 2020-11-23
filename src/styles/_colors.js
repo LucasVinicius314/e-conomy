@@ -1,7 +1,5 @@
 const colors = {
-  principal: '#5757b3ff',
   secondaryLight: '#f1de2fff',
-  secondaryDark: '#000000',
   complementary: '#7200bf',
   complementaryDark: '#260040',
   complementarySemiDark: '#3d0091',
@@ -11,9 +9,14 @@ const colors = {
   transparent: 'rgba(0, 0, 0, 0.5)',
   gray: '#333333',
   /* ================================== */
+
+  primary: '#5757b3',
+  secondaryDark: '#260040',
+  secondary: '#3d0091',
+
+  white: '#fff',
+  black: '#000',
+
 }
 
 export default colors
-
-// yellow #f1de2fff
-// purple #5757b3ff

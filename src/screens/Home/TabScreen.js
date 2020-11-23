@@ -15,13 +15,13 @@ import {
 
 const { Navigator, Screen } = createBottomTabNavigator()
 
-const TabScreen = ({ categorias, setCategorias }) => {
+const TabScreen = ({ categorias, setCategorias, adicionar, remover }) => {
   return (
     <Navigator
       initialRouteName='Listagem'
       tabBarOptions={{
         labelStyle: { fontFamily: 'Montserrat-Regular' },
-        activeTintColor: colors.principal,
+        activeTintColor: colors.primary,
         inactiveTintColor: colors.gray,
         style: {
           backgroundColor: 'black',
@@ -36,7 +36,7 @@ const TabScreen = ({ categorias, setCategorias }) => {
       <Screen
         name='Listagem'
         options={{ tabBarIcon: ({ focused, color }) => <Feather name="list" size={24} color={color} /> }}
-        children={() => <Listagem categorias={categorias} setCategorias={setCategorias} />}
+        children={() => <Listagem categorias={categorias} setCategorias={setCategorias} adicionar={adicionar} remover={remover} />}
       />
       <Screen
         name='Relatorio'

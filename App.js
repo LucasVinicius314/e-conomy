@@ -44,6 +44,21 @@ export default function App() {
   })
   if (!loaded) return null
 
+  const createCategoria = _categoria => {
+    setCategorias([...categorias, _categoria])
+  }
+
+  const adicionar = k => {
+    let c = categorias
+    c[k].quantidade = c[k].quantidade + 1
+    setCategorias(c)
+  }
+
+  const remover = k => {
+    let c = categorias
+    c[k].quantidade = c[k].quantidade - 1
+    setCategorias(c)
+  }
 
   return (
     <NavigationContainer>
@@ -55,7 +70,13 @@ export default function App() {
           component={HomeScreen} />
         <Screen
           name='TabScreen'
-          children={() => <TabScreen categorias={categorias} setCategorias={setCategorias} />} />
+          children={() => <TabScreen
+            categorias={categorias}
+            setCategorias={setCategorias}
+            createCategoria={createCategoria}
+            adicionar={adicionar}
+            remover={remover}
+          />} />
       </Navigator>
     </NavigationContainer>
   )

@@ -2,15 +2,13 @@ import 'react-native-gesture-handler'
 
 import { SafeAreaView, ScrollView, StyleSheet, View, TextInput } from 'react-native'
 import Text from '../../Text'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { LinearGradient } from 'expo-linear-gradient'
 import colors from '../../styles/_colors'
 import { useNavigation } from '@react-navigation/native'
 import { MaterialIcons } from '@expo/vector-icons'
 import { Picker } from '@react-native-community/picker'
 import { FAB, configureFonts, DefaultTheme } from 'react-native-paper'
-import AsyncStorage from '@react-native-async-storage/async-storage'
-import { TextInputMask } from 'react-native-masked-text'
 
 const theme = {
   ...DefaultTheme,
@@ -50,8 +48,12 @@ const Cadastro = ({ categorias, setCategorias }) => {
   const save = async () => {
     try {
       if (isNaN(potencia)) throw new Error('Gasto inválido')
-      setCategorias([...categorias, { nome, potencia, tempo }])
-      navigation.navigate('Listagem');
+      setCategorias([...categorias, { nome, potencia, tempo, quantidade: 0 }])
+      setNome('')
+      setPotencia('')
+      setTempo('')
+      setAtivo()
+      navigation.navigate('Listagem')
     } catch (e) {
       alert(e)
     }
@@ -64,10 +66,10 @@ const Cadastro = ({ categorias, setCategorias }) => {
     <SafeAreaView style={styles.safeAreaView}>
       <LinearGradient
         style={{ width: '100%', height: '100%', alignItems: 'center' }}
-        colors={[colors.secondaryDark, colors.secondaryDark, colors.principal]}>
+        colors={[colors.black, colors.black, colors.primary]}>
         <ScrollView style={{ width: '100%', height: '100%' }} contentContainerStyle={{ alignItems: 'center', paddingHorizontal: 20 }}>
           <Text style={styles.title}>Cadastro</Text>
-          <MaterialIcons name="settings-input-antenna" size={54} color='#fff' style={{ marginVertical: 20 }} />
+          <MaterialIcons name="settings-input-antenna" size={54} color={colors.white} style={{ marginVertical: 20 }} />
           <TextInput style={styles.TextInput} placeholder='Nome' placeholderTextColor='#ccc' value={nome} onChangeText={setNome} />
           <TextInput style={styles.TextInput} placeholder='Potência (W)' keyboardType='numeric' placeholderTextColor='#ccc' value={potencia} onChangeText={setPotencia} />
           <View style={styles.pickerContainer}>
@@ -108,7 +110,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   title: {
-    color: '#fff',
+    color: colors.white,
     fontSize: 40,
     marginVertical: 20,
   },
@@ -117,7 +119,7 @@ const styles = StyleSheet.create({
     padding: 20,
     borderRadius: 30,
     borderWidth: 1,
-    borderColor: '#fff',
+    borderColor: colors.white,
     alignItems: 'center',
   },
   textButtonContainer: {
@@ -127,7 +129,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   textButton: {
-    color: '#fff',
+    color: colors.white,
     fontSize: 22,
     textAlign: 'center',
     marginRight: 10,
@@ -144,7 +146,7 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     borderColor: '#F0F0F5',
     borderWidth: 1,
-    color: '#fff'
+    color: colors.white
   },
   pickerContainer: {
     width: '100%',
@@ -157,7 +159,7 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     borderWidth: 1,
     borderColor: '#F0F0F5',
-    color: '#fff',
+    color: colors.white,
   },
   picker: {
     color: '#ccc',
