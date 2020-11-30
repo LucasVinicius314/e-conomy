@@ -99,7 +99,7 @@ const Relatorio = ({ categorias }) => {
         <View style={{ alignItems: 'center', flex: 1, justifyContent: 'space-between' }}>
           <View style={{ alignItems: 'center', width: '100%', paddingVertical: 30 }}>
             <Text style={{ color: colors.white }}>Consumo mensal total</Text>
-            <Text style={{ color: 'white', fontSize: 70, marginVertical: 20 }}>{consumoTotal.toFixed(2)}kWh</Text>
+            <Text style={{ color: 'white', fontSize: 45, marginVertical: 20 }}>{consumoTotal.toFixed(2)}kWh</Text>
           </View>
           <Carousel
             style={{ backgroundColor: 'green' }}

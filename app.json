@@ -23,7 +23,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/e-conomy512.png",
         "backgroundColor": "#5757b3"
-      }
+      },
+      "package": "com.joojceec.economy"
     }
   }
 }
